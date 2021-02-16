@@ -73,4 +73,5 @@ w_ptre = ends_ptr2(enum);
 for w = w_ptrs:(w_ptre-1)
     plot([xy(w,1), xy(w+1,1)],[xy(w,2), xy(w+1,2)],'-b')
 end 
+test
 
