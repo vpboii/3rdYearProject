@@ -20,12 +20,12 @@ end
 % Another comparison
 %vec2word(emb,(word2vec(emb,'woman')-word2vec(emb,'man')+word2vec(emb,'boy')))
 
-if exist('test.mat','file') ~= 2
-    test = fileread('test.txt');
+if exist('testy2.mat','file') ~= 2
+    test = fileread('testy2.txt');
     test = split(test);
-    save('test.mat','test');
+    save('testy2.mat','test');
 else
-    load('test.mat')
+    load('testy2.mat')
 end
 
 % End of email marker (inserted in previous Python script
@@ -56,22 +56,13 @@ ends_ptr2;
 test_reduced = test;
 test_reduced(not_in_glove_flag) = [];
 vec = word2vec(emb,test_reduced);
+cidx = kmeans(vec,25,'dist','sqeuclidean');
+
+% Break here
 rng('default'); % for reproducibility
 xy = tsne(vec);
-
-
-figure
 textscatter(xy,test_reduced)
 handl = textscatter(xy,test_reduced);
 hold
 
-% Little bit of code to plot a desired email trajectory
-enum = 2;
-w_ptrs = ends_ptr2(enum-1)+1;
-w_ptre = ends_ptr2(enum);
-
-for w = w_ptrs:(w_ptre-1)
-    plot([xy(w,1), xy(w+1,1)],[xy(w,2), xy(w+1,2)],'-b')
-end 
-test
 
