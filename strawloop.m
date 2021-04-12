@@ -7,7 +7,7 @@ colours = ['r','b','g','k'];
     handl = textscatter(xy,test_reduced,'ColorData',categorical(cidx));
     hold
     
-for enum = 1:2
+for enum = 1:4
     if (enum == 1)
         w_ptrs = 1;
         w_ptre = ends_ptr2(1);  
@@ -20,6 +20,8 @@ for enum = 1:2
     colptr = rem(enum,length(colours))+1;
     LineType = ['-',colours(colptr)];
     
-    phan = wordtrajplot(w_ptrs,w_ptre,xy,LineType);
-
+    w_ptrs
+    w_ptre
+     phan = wordtrajplot(w_ptrs,w_ptre,xy,LineType);
 end
+

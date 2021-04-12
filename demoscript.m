@@ -20,12 +20,12 @@ end
 % Another comparison
 %vec2word(emb,(word2vec(emb,'woman')-word2vec(emb,'man')+word2vec(emb,'boy')))
 
-if exist('testy2.mat','file') ~= 2
-    test = fileread('testy2.txt');
+if exist('test3.mat','file') ~= 2
+    test = fileread('test3.txt');
     test = split(test);
-    save('testy2.mat','test');
+    save('test3.mat','test');
 else
-    load('testy2.mat')
+    load('test3.mat')
 end
 
 % End of email marker (inserted in previous Python script
@@ -42,7 +42,6 @@ not_in_glove_flag = ~ismember(test,emb.Vocabulary);
 % end-of-email count
 
 first_token = 1;
-ends_ptr
 Nremovals = 0;
 for n = 1:length(ends_ptr)
     end_token = ends_ptr(n);
